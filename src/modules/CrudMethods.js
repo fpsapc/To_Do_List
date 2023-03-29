@@ -7,8 +7,10 @@ class TaskList {
     this.taskInput = document.getElementById('task-input');
     this.taskList = document.getElementById('task-list');
     this.clearCompletedBtn = document.getElementById('clear-completed');
+    this.resetBtn = document.getElementById('reset');
     this.taskForm.addEventListener('submit', this.addTask.bind(this));
     this.clearCompletedBtn.addEventListener('click', this.clearCompletedTasks.bind(this));
+    this.resetBtn.addEventListener('click', this.resetTasks.bind(this));
     this.displayTasks();
   }
 
@@ -16,57 +18,83 @@ class TaskList {
     e.preventDefault();
     const taskName = this.taskInput.value.trim();
     if (taskName !== '') {
+      if (this.tasks.length === 0) {
+        // add a placeholder task at index 0
+        this.tasks.push(new Task('', false));
+      }
       const task = new Task(taskName, false);
       this.tasks.push(task);
+      this.saveTasks();
       this.displayTasks();
       this.taskInput.value = '';
-      localStorage.setItem('tasks', JSON.stringify(this.tasks));
+    }
+  }
+
+  editTask(id, newName) {
+    const taskIndex = this.tasks.findIndex((task) => task.id === id);
+    if (taskIndex !== -1) {
+      this.tasks[taskIndex].name = newName;
+      this.saveTasks();
+      this.displayTasks();
     }
   }
 
   removeTask(id) {
     this.tasks = this.tasks.filter((task) => task.id !== id);
+    this.saveTasks();
     this.displayTasks();
-    localStorage.setItem('tasks', JSON.stringify(this.tasks));
   }
 
   toggleTaskStatus(id) {
     const index = this.tasks.findIndex((task) => task.id === id);
-    this.tasks[index].status = !this.tasks[index].status;
-    this.displayTasks();
-    localStorage.setItem('tasks', JSON.stringify(this.tasks));
+    if (index !== -1) {
+      this.tasks[index].status = !this.tasks[index].status;
+      this.saveTasks();
+      this.displayTasks();
+    }
   }
 
   clearCompletedTasks() {
     this.tasks = this.tasks.filter((task) => !task.status);
+    this.saveTasks();
     this.displayTasks();
-    localStorage.setItem('tasks', JSON.stringify(this.tasks));
   }
 
   resetTasks() {
-    this.tasks = [];
-    localStorage.removeItem('tasks');
+    this.tasks = ['Lets Get started'];
+    this.saveTasks();
     this.displayTasks();
+  }
+
+  saveTasks() {
+    localStorage.setItem('tasks', JSON.stringify(this.tasks));
   }
 
   displayTasks() {
     this.taskList.innerHTML = '';
-    this.tasks.forEach((task) => {
+    for (let i = 1; i < this.tasks.length; i += 1) {
+      const task = this.tasks[i];
       const taskElement = document.createElement('li');
       taskElement.innerHTML = `
         <input type='checkbox' ${task.status ? 'checked' : ''}>
-        <span>${task.name}</span>
-        <button class='delete-btn'>X</button>
+        <span ${task.status ? 'style="text-decoration: line-through"' : ''}>
+      ${task.name}</span>
+      <button class="edit-btn">Edit</button>  
+      <button class='delete-btn'>X</button>
       `;
       const checkbox = taskElement.querySelector('input[type=checkbox]');
       checkbox.addEventListener('change', () => this.toggleTaskStatus(task.id));
+      const editBtn = taskElement.querySelector('.edit-btn');
+      editBtn.addEventListener('click', () => {
+        const newName = prompt('Enter new task name:', task.name);
+        if (newName !== null && newName.trim() !== '') {
+          this.editTask(task.id, newName.trim());
+        }
+      });
       const deleteBtn = taskElement.querySelector('.delete-btn');
       deleteBtn.addEventListener('click', () => this.removeTask(task.id));
-      if (task.status) {
-        taskElement.querySelector('span').style.textDecoration = 'line-through';
-      }
       this.taskList.appendChild(taskElement);
-    });
+    }
   }
 }
 
