@@ -15,7 +15,7 @@ body {
 }
 
 /* ToDo List */
-.list-container {
+.container {
   display: flex;
   flex-direction: column;
   align-content: center;
@@ -29,7 +29,7 @@ body {
 }
 
 /* ToDo List => Header */
-.list-header {
+.heading {
   display: flex;
   justify-content: space-between;
   margin-bottom: 0%;
@@ -38,7 +38,7 @@ body {
 }
 
 /* ToDo List => Form */
-.list-form {
+.form {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -48,7 +48,7 @@ body {
   border-bottom: #ddd 1px solid;
 }
 
-.list-form input {
+.form input {
   width: 90%;
   height: 30px;
   font-size: 0.8em;
