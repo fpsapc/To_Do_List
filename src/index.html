@@ -8,26 +8,20 @@
     <title>To Do List</title>
 </head>
 <body>
-    <h1 class="title">To Do List</h1>
-  
-  <!-- To Do List -->
-  <div class="container">
-    <div class="heading">
-      <h2 class="list-title">Today's To Do</h2>
-      <i class="fas fa-sync"></i>
+  <h1>To-Do List</h1>
+    <form id="task-form">
+      <div class="today-container">
+        <h2>Today's to do</h2>
+        <i id="reset" class="fas fa-sync"></i>
+      </div>
+      <div class="inputBtn">
+        <input type="text" id="task-input" placeholder="Add to your list...">
+        <button type="submit">Add Task</button>
+      </div>
+      <ul id="task-list"></ul>    
+    </form>
+    <div class="clear-btn">
+      <button id="clear-completed" type="button">Clear All Completed</button>
     </div>
-    <div class="">
-      <form class="form">
-        <input id="task" type="text" placeholder="Add to your list...">
-        <i class="fas fa-arrow-left"></i>
-      </form>
-    </div>
-    <div class="list-content" id="todo-list">
-      <!-- Tasks -->
-    </div>
-    <div class="btn-container">
-      <button class="btn" id="clearBtn">Clear All Completed</button>
-    </div>
-  </div>
 </body>
 </html>
