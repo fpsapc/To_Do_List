@@ -110,9 +110,7 @@ Clone this repository to your desired folder:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-> Describe 1 - 3 features you will add to the project.
-
-- [ ] **[I will add functionality in this design]**
+- [ ] **[I will add some images to this project to make it look's more attractive]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
