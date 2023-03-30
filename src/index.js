@@ -1,6 +1,6 @@
 import './style.css';
 
-import TaskList from './modules/CrudMethods.js';
+import TaskList from './modules/interactive.js';
 
 const taskList = new TaskList();
 
