@@ -79,7 +79,7 @@ class TaskList {
         <input type='checkbox' ${task.status ? 'checked' : ''}>
         <span ${task.status ? 'style="text-decoration: line-through"' : ''}>
       ${task.name}</span>
-      <button class="edit-btn">Edit</button>  
+      <button class="edit-btn">Edit</button>
       <button class='delete-btn'>X</button>
       `;
       const checkbox = taskElement.querySelector('input[type=checkbox]');
