@@ -1,4 +1,4 @@
-import Task from './task.js';
+import addTask from './addTask.js';
 
 class TaskList {
   constructor() {
@@ -8,27 +8,33 @@ class TaskList {
     this.taskList = document.getElementById('task-list');
     this.clearCompletedBtn = document.getElementById('clear-completed');
     this.resetBtn = document.getElementById('reset');
-    this.taskForm.addEventListener('submit', this.addTask.bind(this));
+    this.taskForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      this.tasks = addTask(this.taskInput, this.tasks);
+      this.saveTasks();
+      this.displayTasks();
+      this.taskInput.value = '';
+    });
     this.clearCompletedBtn.addEventListener('click', this.clearCompletedTasks.bind(this));
     this.resetBtn.addEventListener('click', this.resetTasks.bind(this));
     this.displayTasks();
   }
 
-  addTask(e) {
-    e.preventDefault();
-    const taskName = this.taskInput.value.trim();
-    if (taskName !== '') {
-      if (this.tasks.length === 0) {
-        // add a placeholder task at index 0
-        this.tasks.push(new Task('', false));
-      }
-      const task = new Task(taskName, false);
-      this.tasks.push(task);
-      this.saveTasks();
-      this.displayTasks();
-      this.taskInput.value = '';
-    }
-  }
+  // addTask(e) {
+  //   e.preventDefault();
+  //   const taskName = this.taskInput.value.trim();
+  //   if (taskName !== '') {
+  //     if (this.tasks.length === 0) {
+  //       // add a placeholder task at index 0
+  //       this.tasks.push(new Task('', false));
+  //     }
+  //     const task = new Task(taskName, false);
+  //     this.tasks.push(task);
+  //     this.saveTasks();
+  //     this.displayTasks();
+  //     this.taskInput.value = '';
+  //   }
+  // }
 
   editTask(id, newName) {
     const taskIndex = this.tasks.findIndex((task) => task.id === id);
@@ -61,7 +67,7 @@ class TaskList {
   }
 
   resetTasks() {
-    this.tasks = ['Lets Get started'];
+    this.tasks = [];
     this.saveTasks();
     this.displayTasks();
   }
@@ -72,16 +78,17 @@ class TaskList {
 
   displayTasks() {
     this.taskList.innerHTML = '';
-    for (let i = 1; i < this.tasks.length; i += 1) {
+    for (let i = 0; i < this.tasks.length; i += 1) {
       const task = this.tasks[i];
       const taskElement = document.createElement('li');
       taskElement.innerHTML = `
-        <input type='checkbox' ${task.status ? 'checked' : ''}>
-        <span ${task.status ? 'style="text-decoration: line-through"' : ''}>
-      ${task.name}</span>
+      <input type='checkbox' ${task.status ? 'checked' : ''}>
+      <span ${task.status ? 'style="text-decoration: line-through"' : ''}>
+        ${task.name}
+      </span>
       <button class="edit-btn">Edit</button>
       <button class='delete-btn'>X</button>
-      `;
+    `;
       const checkbox = taskElement.querySelector('input[type=checkbox]');
       checkbox.addEventListener('change', () => this.toggleTaskStatus(task.id));
       const editBtn = taskElement.querySelector('.edit-btn');

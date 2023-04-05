@@ -31,6 +31,8 @@
     "gh-pages": "^5.0.0",
     "hint": "^7.1.6",
     "html-webpack-plugin": "^5.5.0",
+    "jest-environment-jsdom": "^29.5.0",
+    "jsdom": "^21.1.1",
     "style-loader": "^3.3.2",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^21.0.0",
