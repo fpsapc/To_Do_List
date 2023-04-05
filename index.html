@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/6e8f4ae605.js" crossorigin="anonymous"></script>
+    <title>To Do List</title>
+<script defer src="runtime.bundle.js"></script><script defer src="index.bundle.js"></script></head>
+<body>
+  <h1>To-Do List</h1>
+    <form id="task-form">
+      <div class="today-container">
+        <h2>Today's to do</h2>
+        <i id="reset" class="fas fa-sync"></i>
+      </div>
+      <div class="inputBtn">
+        <input type="text" id="task-input" placeholder="Add to your list...">
+        <button type="submit">Add Task</button>
+      </div>
+      <ul id="task-list"></ul>    
+    </form>
+    <div class="clear-btn">
+      <button id="clear-completed" type="button">Clear All Completed</button>
+    </div>
+</body>
+</html>
