@@ -20,22 +20,6 @@ class TaskList {
     this.displayTasks();
   }
 
-  // addTask(e) {
-  //   e.preventDefault();
-  //   const taskName = this.taskInput.value.trim();
-  //   if (taskName !== '') {
-  //     if (this.tasks.length === 0) {
-  //       // add a placeholder task at index 0
-  //       this.tasks.push(new Task('', false));
-  //     }
-  //     const task = new Task(taskName, false);
-  //     this.tasks.push(task);
-  //     this.saveTasks();
-  //     this.displayTasks();
-  //     this.taskInput.value = '';
-  //   }
-  // }
-
   editTask(id, newName) {
     const taskIndex = this.tasks.findIndex((task) => task.id === id);
     if (taskIndex !== -1) {
