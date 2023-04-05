@@ -4,7 +4,7 @@
   "description": "<a name=\"readme-top\"></a>",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "webpack serve --open",
     "build": "webpack --mode=development",
     "predeploy": "npm run build",
@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/fpsapc/To_Do_List#readme",
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.21.2",
     "babel-eslint": "^10.1.0",
     "css-loader": "^6.7.3",
     "eslint": "^7.32.0",
@@ -40,6 +41,7 @@
     "webpack-dev-server": "^4.13.1"
   },
   "dependencies": {
+    "jest": "^29.5.0",
     "lodash": "^4.17.21"
   },
   "main": "webpack.config.js"
