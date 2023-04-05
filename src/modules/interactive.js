@@ -1,4 +1,5 @@
 import addTask from './addTask.js';
+import removeTask from './removeTask.js';
 
 class TaskList {
   constructor() {
@@ -30,7 +31,7 @@ class TaskList {
   }
 
   removeTask(id) {
-    this.tasks = this.tasks.filter((task) => task.id !== id);
+    this.tasks = removeTask(id, this.tasks);
     this.saveTasks();
     this.displayTasks();
   }
