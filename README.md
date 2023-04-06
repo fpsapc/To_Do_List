@@ -14,7 +14,7 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
+
 - [💻 Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Setup](#setup)
@@ -77,11 +77,7 @@ Webpack
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- LIVE DEMO -->
 
-## 🚀 Live Demo <a name="live-demo"></a>
-
-- [Live Demo Link](https://fpsapc.github.io/To_Do_List)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -158,6 +154,13 @@ You can deploy this project using: GitHub Pages,
 <!-- AUTHORS -->
 
 ## 👥 Author <a name="authors"></a>
+
+👤 **Tebe Tisloh**
+
+- GitHub: [@Booze33](https://github.com/Booze33)
+- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+
 
 👤 **Author**
 
