@@ -49,7 +49,7 @@ Webpack
 <details>
   <summary>Client</summary>
   <ul>
-    <li><a href="https://Node.org/">Node.js</a></li>
+    <li><a href="#">HTML,CSS and JavaScript</a></li>
   </ul>
 </details>
 
@@ -141,6 +141,10 @@ npx stylelint "**/*.{css,scss}"
 - Track JavaScript linter errors run:
 ```
 npx eslint .
+```
+- run test:
+```
+npm test 
 ```
 
 ### Deployment <a name="deployment"></a>
