@@ -79,7 +79,7 @@ class TaskList {
       checkbox.addEventListener('change', () => this.toggleTaskStatus(task.id));
       const editBtn = taskElement.querySelector('.edit-btn');
       editBtn.addEventListener('click', () => {
-        const newName = customPrompt('Enter new task name:', task.name);
+        const newName = prompt('Enter new task name:', task.name);
         if (newName !== null && newName.trim() !== '') {
           this.editTask(task.id, newName.trim());
         }
