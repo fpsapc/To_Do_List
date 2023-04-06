@@ -27,7 +27,7 @@ class TaskList {
       this.tasks[taskIndex].name = newName;
       this.saveTasks();
       this.displayTasks();
-    }
+    };
   }
 
   removeTask(id) {
@@ -74,6 +74,7 @@ class TaskList {
       <button class="edit-btn">Edit</button>
       <button class='delete-btn'>X</button>
     `;
+
       const checkbox = taskElement.querySelector('input[type=checkbox]');
       checkbox.addEventListener('change', () => this.toggleTaskStatus(task.id));
       const editBtn = taskElement.querySelector('.edit-btn');
@@ -86,7 +87,7 @@ class TaskList {
       const deleteBtn = taskElement.querySelector('.delete-btn');
       deleteBtn.addEventListener('click', () => this.removeTask(task.id));
       this.taskList.appendChild(taskElement);
-    }
+    };
   }
 }
 
