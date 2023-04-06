@@ -1,6 +1,6 @@
 import addTask from './addTask.js';
 import removeTask from './removeTask.js';
-import { clearCompletedTask, toggleTaskStatus } from './clearToggleEditTask.js';
+import { clearCompletedTask, toggleTaskStatus, editTask } from './clearToggleEditTask.js';
 
 class TaskList {
   constructor() {
@@ -28,6 +28,10 @@ class TaskList {
       this.displayTasks();
     });
     this.displayTasks();
+  }
+
+  editTask(id, newName) {
+    editTask(id, newName, this.tasks, this.saveTasks.bind(this), this.displayTasks.bind(this));
   }
 
   removeTask(id) {

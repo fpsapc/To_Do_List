@@ -16,4 +16,14 @@ function toggleTaskStatus(id, tasks) {
   });
 }
 
-export { clearCompletedTask, toggleTaskStatus };
+// editTask function
+function editTask(id, newName, tasks, saveTasks, displayTasks) {
+  const taskIndex = tasks.findIndex((task) => task.id === id);
+  if (taskIndex !== -1) {
+    tasks[taskIndex].name = newName;
+    saveTasks();
+    displayTasks();
+  }
+}
+
+export { clearCompletedTask, toggleTaskStatus, editTask };

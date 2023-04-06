@@ -1,4 +1,4 @@
-import { clearCompletedTask, toggleTaskStatus } from '../src/modules/clearToggleEditTask.js';
+import { clearCompletedTask, toggleTaskStatus, editTask } from '../src/modules/clearToggleEditTask.js';
 import tasks from '../__mock__/localStorage.js';
 
 // clearCompletedTask test
@@ -47,5 +47,33 @@ describe('toggleTaskStatus', () => {
     const result = toggleTaskStatus(2, tasks);
     expect(result).not.toBe(tasks);
     expect(result[1]).not.toBe(tasks[1]);
+  });
+});
+
+// edit task test
+describe('editTask', () => {
+  const mockSaveTasks = jest.fn();
+  const mockDisplayTasks = jest.fn();
+
+  test('should update the name of a task given its ID', () => {
+    const taskId = 2;
+    const newName = 'New Task Name';
+    editTask(taskId, newName, tasks, mockSaveTasks, mockDisplayTasks);
+    expect(tasks[1].name).toBe(newName);
+  });
+
+  test('should not update the name of a task if the ID does not exist', () => {
+    const taskId = 4;
+    const newName = 'New Task Name';
+    editTask(taskId, newName, tasks, mockSaveTasks, mockDisplayTasks);
+    expect(tasks).toEqual(tasks);
+  });
+
+  test('should call saveTasks and displayTasks functions after updating a task', () => {
+    const taskId = 1;
+    const newName = 'Updated Task Name';
+    editTask(taskId, newName, tasks, mockSaveTasks, mockDisplayTasks);
+    expect(mockSaveTasks).toHaveBeenCalled();
+    expect(mockDisplayTasks).toHaveBeenCalled();
   });
 });
