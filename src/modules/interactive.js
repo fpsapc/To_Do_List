@@ -27,7 +27,7 @@ class TaskList {
       this.tasks[taskIndex].name = newName;
       this.saveTasks();
       this.displayTasks();
-    };
+    }
   }
 
   removeTask(id) {
@@ -79,7 +79,7 @@ class TaskList {
       checkbox.addEventListener('change', () => this.toggleTaskStatus(task.id));
       const editBtn = taskElement.querySelector('.edit-btn');
       editBtn.addEventListener('click', () => {
-        const newName = prompt('Enter new task name:', task.name);
+        const newName = customPrompt('Enter new task name:', task.name);
         if (newName !== null && newName.trim() !== '') {
           this.editTask(task.id, newName.trim());
         }
@@ -87,7 +87,7 @@ class TaskList {
       const deleteBtn = taskElement.querySelector('.delete-btn');
       deleteBtn.addEventListener('click', () => this.removeTask(task.id));
       this.taskList.appendChild(taskElement);
-    };
+    }
   }
 }
 

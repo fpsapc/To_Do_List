@@ -6,7 +6,7 @@ function addTask(taskInput, tasks) {
   if (taskName !== '') {
     const task = new Task(taskName, false, id);
     tasks.push(task);
-  };
+  }
   return tasks;
 }
 
