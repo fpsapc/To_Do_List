@@ -1,17 +1,12 @@
 import removeTask from './src/modules/removeTask.js';
+import tasks from './__mock__/localStorage.js';
 
 describe('removeTask', () => {
-  const tasks = [
-    { id: 1, name: 'Task 1', status: false },
-    { id: 2, name: 'Task 2', status: true },
-    { id: 3, name: 'Task 3', status: false },
-  ];
-
   test('should remove task with given id', () => {
     const updatedTasks = removeTask(2, tasks);
     expect(updatedTasks).toEqual([
       { id: 1, name: 'Task 1', status: false },
-      { id: 3, name: 'Task 3', status: false },
+      { id: 2, name: 'Task 3', status: false },
     ]);
   });
 
