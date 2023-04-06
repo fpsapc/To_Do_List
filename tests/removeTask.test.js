@@ -1,5 +1,5 @@
-import removeTask from './src/modules/removeTask.js';
-import tasks from './__mock__/localStorage.js';
+import removeTask from '../src/modules/removeTask.js';
+import tasks from '../__mock__/localStorage.js';
 
 describe('removeTask', () => {
   test('should remove task with given id', () => {

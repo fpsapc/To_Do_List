@@ -15,4 +15,5 @@ function toggleTaskStatus(id, tasks) {
     return task;
   });
 }
+
 export { clearCompletedTask, toggleTaskStatus };
