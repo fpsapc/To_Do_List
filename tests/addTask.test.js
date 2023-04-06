@@ -1,5 +1,5 @@
-import Task from './src/modules/task.js';
-import addTask from './src/modules/addTask.js';
+import Task from '../src/modules/task.js';
+import addTask from '../src/modules/addTask.js';
 
 // Test suite
 describe('addTask function', () => {

@@ -1,5 +1,6 @@
 import addTask from './addTask.js';
 import removeTask from './removeTask.js';
+import { clearCompletedTask, toggleTaskStatus, editTask } from './clearToggleEditTask.js';
 
 class TaskList {
   constructor() {
@@ -16,18 +17,21 @@ class TaskList {
       this.displayTasks();
       this.taskInput.value = '';
     });
-    this.clearCompletedBtn.addEventListener('click', this.clearCompletedTasks.bind(this));
-    this.resetBtn.addEventListener('click', this.resetTasks.bind(this));
+    this.clearCompletedBtn.addEventListener('click', () => {
+      this.tasks = clearCompletedTask(this.tasks);
+      this.saveTasks();
+      this.displayTasks();
+    });
+    this.resetBtn.addEventListener('click', () => {
+      this.tasks = [];
+      this.saveTasks();
+      this.displayTasks();
+    });
     this.displayTasks();
   }
 
   editTask(id, newName) {
-    const taskIndex = this.tasks.findIndex((task) => task.id === id);
-    if (taskIndex !== -1) {
-      this.tasks[taskIndex].name = newName;
-      this.saveTasks();
-      this.displayTasks();
-    }
+    editTask(id, newName, this.tasks, this.saveTasks.bind(this), this.displayTasks.bind(this));
   }
 
   removeTask(id) {
@@ -37,16 +41,7 @@ class TaskList {
   }
 
   toggleTaskStatus(id) {
-    const index = this.tasks.findIndex((task) => task.id === id);
-    if (index !== -1) {
-      this.tasks[index].status = !this.tasks[index].status;
-      this.saveTasks();
-      this.displayTasks();
-    }
-  }
-
-  clearCompletedTasks() {
-    this.tasks = this.tasks.filter((task) => !task.status);
+    this.tasks = toggleTaskStatus(id, this.tasks);
     this.saveTasks();
     this.displayTasks();
   }
