@@ -165,18 +165,17 @@ You can deploy this project using: GitHub Pages,
 
 ## 👥 Author <a name="authors"></a>
 
+👤 **Salman Ahmad Khan**
+
+- GitHub: [@githubhandle](https://github.com/fpsapc)
+- Twitter: [@twitterhandle](https://twitter.com/salman-ahmadkhan1987)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/salman-ahmad1987 )
+
 👤 **Tebe Tisloh**
 
 - GitHub: [@Booze33](https://github.com/Booze33)
 - Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-
-👤 **Author**
-
-- GitHub: [@githubhandle](https://github.com/fpsapc/To_Do_List)
-- Twitter: [@twitterhandle](https://twitter.com/salmanahmadkhan)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/salmanahmadkhan1987)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
